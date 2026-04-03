@@ -104,7 +104,7 @@ const MainLayout: React.FC = () => {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: '#fff', fontWeight: 'bold', fontSize: 15,
           }}>Q</div>
-          {!collapsed && <span style={{ color: '#fff', fontSize: 15, fontWeight: 600 }}>Qvzhongren</span>}
+          {!collapsed && <span style={{ color: '#fff', fontSize: 15, fontWeight: 600 }}>曲终人</span>}
         </div>
         <Menu
           mode="inline" selectedKeys={selectedKeys} defaultOpenKeys={openKeys}

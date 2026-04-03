@@ -148,7 +148,7 @@ const Login: React.FC = () => {
               color: '#fff', fontSize: 24, fontWeight: 'bold',
             }}>Q</div>
             <h1 style={{ fontSize: 24, fontWeight: 700, color: '#2D1B69', margin: 0 }}>
-              Qvzhongren
+              曲终人
             </h1>
             <p style={{ color: '#A0A0B0', fontSize: 14, marginTop: 8 }}>管理系统</p>
           </div>

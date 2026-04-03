@@ -23,7 +23,7 @@ public class AgentService : BaseService
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly ISqlSugarClient _db;
 
-    private static readonly string SystemPrompt = @"你是 Qvzhongren 管理系统的智能助手。你可以帮助用户：
+    private static readonly string SystemPrompt = @"你是曲终人管理系统的智能助手。你可以帮助用户：
 1. 查询系统数据（用户、角色、菜单、日志等）
 2. 导航到系统页面
 3. 回答关于系统的问题

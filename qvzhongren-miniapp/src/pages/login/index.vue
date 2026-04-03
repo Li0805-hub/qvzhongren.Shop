@@ -2,7 +2,7 @@
   <view class="login-page">
     <view class="login-card">
       <view class="logo-section">
-        <text class="logo-text">趣众人商城</text>
+        <text class="logo-text">曲终人商城</text>
         <text class="logo-sub">欢迎登录</text>
       </view>
       <view class="form-section">
