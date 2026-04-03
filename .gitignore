@@ -1,0 +1,49 @@
+# ========== C# / .NET ==========
+**/bin/
+**/obj/
+**/publish/
+**/.vs/
+**/*.user
+**/*.suo
+**/*.cache
+**/project.lock.json
+**/*.DotSettings.user
+
+# ========== Node.js / 前端 ==========
+**/node_modules/
+**/dist/
+**/.nuxt/
+**/.output/
+**/.vite/
+**/unpackage/
+
+# ========== UniApp 编译产物 ==========
+qvzhongren-miniapp/dist/
+qvzhongren-miniapp/unpackage/
+
+# ========== IDE ==========
+**/.idea/
+**/.vscode/
+**/*.swp
+**/*.swo
+*~
+
+# ========== OS ==========
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ========== 环境变量 / 密钥 ==========
+**/.env
+**/.env.local
+**/.env.*.local
+
+# ========== 日志 ==========
+**/*.log
+**/npm-debug.log*
+
+# ========== Docker 临时文件 ==========
+**/docker-compose.override.yml
+
+# ========== 其他 ==========
+**/.claude/

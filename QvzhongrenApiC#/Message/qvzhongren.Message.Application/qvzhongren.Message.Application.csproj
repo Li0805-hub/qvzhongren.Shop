@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="8.3.4" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="8.3.4" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="8.3.4" />
+    <PackageReference Include="Volo.Abp.Core" Version="8.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\qvzhongren.Application\qvzhongren.Application.csproj" />
+    <ProjectReference Include="..\..\qvzhongren.Repository\qvzhongren.Repository.csproj" />
+    <ProjectReference Include="..\qvzhongren.Message.Model\qvzhongren.Message.Model.csproj" />
+    <ProjectReference Include="..\..\qvzhongren.Contracts\qvzhongren.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

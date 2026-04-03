@@ -1,0 +1,104 @@
+version: "3.8"
+
+services:
+  # ============ API Gateway ============
+  gateway:
+    build:
+      context: .
+      dockerfile: Gateway/qvzhongren.Gateway/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+      # 覆盖 YARP 路由目标地址（容器内用服务名通信）
+      - ReverseProxy__Clusters__permission__Destinations__d1__Address=http://permission:5001
+      - ReverseProxy__Clusters__message__Destinations__d1__Address=http://message:5002
+      - ReverseProxy__Clusters__agent__Destinations__d1__Address=http://agent:5003
+      - ReverseProxy__Clusters__platform__Destinations__d1__Address=http://platform:5004
+      - ReverseProxy__Clusters__shop__Destinations__d1__Address=http://shop:5005
+    depends_on:
+      - permission
+      - message
+      - agent
+      - platform
+      - shop
+    networks:
+      - qvzhongren-net
+
+  # ============ Permission 服务 ============
+  permission:
+    build:
+      context: .
+      dockerfile: Permission/qvzhongren.Permission.Host/Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_URLS=http://+:5001
+      - DbConnections__MasterDB__ConnectionString=Host=host.docker.internal;Port=5432;Database=xiaoli;Username=postgres;
+    networks:
+      - qvzhongren-net
+
+  # ============ Message 服务 ============
+  message:
+    build:
+      context: .
+      dockerfile: Message/qvzhongren.Message.Host/Dockerfile
+    ports:
+      - "5002:5002"
+    environment:
+      - ASPNETCORE_URLS=http://+:5002
+      - DbConnections__MasterDB__ConnectionString=Host=host.docker.internal;Port=5432;Database=xiaoli;Username=postgres;
+      - ServiceUrls__PermissionService=http://permission:5001
+    depends_on:
+      - permission
+    networks:
+      - qvzhongren-net
+
+  # ============ Agent 服务 ============
+  agent:
+    build:
+      context: .
+      dockerfile: Agent/qvzhongren.Agent.Host/Dockerfile
+    ports:
+      - "5003:5003"
+    environment:
+      - ASPNETCORE_URLS=http://+:5003
+      - ServiceUrls__PermissionService=http://permission:5001
+      - ServiceUrls__PlatformService=http://platform:5004
+    networks:
+      - qvzhongren-net
+
+  # ============ Platform 服务 ============
+  platform:
+    build:
+      context: .
+      dockerfile: Platform/qvzhongren.Platform.Host/Dockerfile
+    ports:
+      - "5004:5004"
+    volumes:
+      - platform-uploads:/app/wwwroot/uploads
+    environment:
+      - ASPNETCORE_URLS=http://+:5004
+      - DbConnections__MasterDB__ConnectionString=Host=host.docker.internal;Port=5432;Database=xiaoli;Username=postgres;
+    networks:
+      - qvzhongren-net
+
+  # ============ Shop 服务 ============
+  shop:
+    build:
+      context: .
+      dockerfile: Shop/qvzhongren.Shop.Host/Dockerfile
+    ports:
+      - "5005:5005"
+    environment:
+      - ASPNETCORE_URLS=http://+:5005
+      - DbConnections__MasterDB__ConnectionString=Host=host.docker.internal;Port=5432;Database=xiaoli;Username=postgres;
+    networks:
+      - qvzhongren-net
+
+networks:
+  qvzhongren-net:
+    driver: bridge
+
+volumes:
+  platform-uploads:

@@ -1,0 +1,18 @@
+/* 自定义 Swagger UI 样式 */
+.swagger-ui .opblock-tag {
+    margin-top: 10px;
+}
+
+.swagger-ui .opblock {
+    margin-bottom: 10px;
+}
+
+/* 调整模型区域样式 */
+.swagger-ui .models-control {
+    display: none; /* 完全隐藏模型控制区 */
+}
+
+/* 如果想默认隐藏整个模型区域 */
+.swagger-ui section.models {
+    display: none;
+} 

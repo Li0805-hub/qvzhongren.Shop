@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SqlSugarCore" Version="5.1.4.188" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\qvzhongren.Model\qvzhongren.Model.csproj" />
+  </ItemGroup>
+
+</Project>

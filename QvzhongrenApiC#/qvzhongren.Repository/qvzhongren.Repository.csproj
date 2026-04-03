@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <NoWarn>$(NoWarn);1591</NoWarn>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Redis\**" />
+    <EmbeddedResource Remove="Redis\**" />
+    <None Remove="Redis\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CSRedisCore" Version="3.8.804" />
+    <PackageReference Include="Elastic.Clients.Elasticsearch" Version="8.17.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+    <PackageReference Include="SqlSugarCore" Version="5.1.4.179" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.24" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\qvzhongren.Model\qvzhongren.Model.csproj" />
+    <ProjectReference Include="..\qvzhongren.Shared\qvzhongren.Shared.csproj" />
+  </ItemGroup>
+</Project>
